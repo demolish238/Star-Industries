@@ -1,0 +1,499 @@
+# Copyright (c) 2024 by Demolish238
+#
+# Korath Retribution is free software: you can redistribute it and/or modify it under the
+# terms of the GNU General Public License as published by the Free Software
+# Foundation, either version 3 of the License, or (at your option) any later version.
+#
+# Korath Retribution is distributed in the hope that it will be useful, but WITHOUT ANY
+# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+# PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+		conversation
+			``
+			`	`
+			`	`
+			choice
+				`	`
+					goto
+				`	`
+					goto
+				`	`
+			`	`
+			`	`
+
+mission "The Calm before the Derek"
+	landing
+	invisible
+	source
+		near Sol 100
+	to offer
+		has "main plot completed"
+	on offer
+		event "Derek is at Pug" 365
+
+event "Derek is at Pug"
+
+mission "Derek Chronicles: 1"
+	name "A Strange Offer"
+	description "Someone managed to contact you about a business offer, travel to <destination> to meet with the person and hear the unknown offer."
+	landing
+	source 
+		near Sol 100
+		not "Pugglemug"
+	to offer
+		random < 5
+		has "event: Derek is at Pug"
+	destination "Pugglemug"
+	on offer
+		conversation
+			`You come in for a smooth landing in <origin>'s spaceport, as your comms begin flashing with a request for a video call.`
+			`	You don't recognise the number, nor does it show any identification to indicate any sort of corporate or government origin. It's a gamble on who will be on the monitor when you answer.`
+			choice
+				`	(Accept the Call)`
+					goto accept
+				`	(Block the Number)`
+					goto block
+				`	(Decline the Call)`
+			`	You decline the call, hopefully whoever tried calling won't bother you again.`
+				defer
+			label block
+			`	You block the number, you hope the caller stops bothering you now.`
+				decline
+			label accept
+			`	A blur of static fills your screen for a moment before the fuzzy image of a man appears. He seems to be adjusting the camera and hitting some equipment outside your view before realising the call has gone through. "Finally its working, well ello there Captain <first> <last>, hope I didn't interrupt anything but I have a proposition that only a Captain as capable as you are applicable for!`
+			`	He wears a lopsided grin and winks at you. "Now I understand you probably get dozens of smucks calling you up begging for cash, favours or whatever, so you probably have a healthy suspicion of random offers and such, but I want you to know I am not asking for any cash or signage until you have personally seen proof that I am legit."`
+			`	Pulling from a stack of papers that seem to be haphazardly stacked behind him, revealing his chaotic small living space for a moment before filling the camera with what looks to be a deed of some sort.`
+			`	"I recently scrounged together enough capital to buy up prime real-estate in the exclusive neutral world of-" He pulls the paper back and reads from it. "Pugglemug, god what an idiotic name, anyway yeah the captured alien world that you played a major part in securing." His arms open wide as he waits for your reaction.`
+			choice
+				`	"And your pitch is?"`
+					goto pitch
+				`	"All in a day’s work."`
+					goto pride
+				`	"I wouldn't say major."`
+					goto kissass
+				`	(Stay silent)`
+			`	He keeps his arms wide wearing a smile for a few moments before dropping them both, "So the stoic and silent type, I can get behind that." He then silently says under his breath just loud enough to hear. "Just hope that doesn’t last for this whole conversation."`
+				goto offer
+			label pitch
+			`	"I was going to get to that, got to give it the proper intro you know?" At your expectant look he coughs. "Okay moving on, won't waste anymore of your time."`
+				goto offer
+			label pride
+			`	"And that work is what drew me to you, someone as accomplished and clearly skilled as yourself is the only person this offer could ever go to, no random smuck would work, only the best of the best, and that's you," He claps his hands together loudly. "Now onto the pitch."`
+				goto offer
+			label kissass
+			`	He places his hands on his chest and puts of a pained face. "No no no, you are one of the most skilled and renowned captains this side of the Milkyway. Not just anyone could make a ship as powerful as the <flagship> nor save as many people as you undoubtedly did when beating back the vile Pug!" He finishes with a flourish. "Now please hear my pitch, oh mighty hero of the republic."`
+			label offer
+			`	He makes a show of breathing in and out dramatically. "I've always had a dream, a deep rooted wish that I never thought I could fulfil." A long dramatic pause follows before be suddenly shouts. "To become filthy stinking rich!" He lets a wide cocky grin cover his face.`
+			`	"Now it's not noble, but really who gives a shit about nobility in this day and age. All that matters are hard earned credits, ideally with as little of the 'hard' part as possible. I have a business venture that can only work now, while this little world is considered neutral ground, exempt from the usual politics and bullshit of the wider galaxy, while also being in one of the most secure and safe spots you can find."`
+			`	A printed out collection of spreadsheets are pulled into view of the camera, each listing a wide range of details, from average pirate activity, to potential tax on revenue from each government, all the way to stability of coffee imports. "I've ran every number I could think of and it all points to one thing, this is a deal you do not want to miss out on."`
+			choice
+				`	"Just tell me what the hell the deal is!"`
+					goto calm
+				`	"Fine I'm in, what do you need."`
+					goto yes
+				`	"Yeah not interested."`
+			action
+				set "50k"
+			`	"WAIT, wait, just come to Pugmug or whatever this planet is called, I'll send the coordinates and, and even pay you when you get here, 50k credits please just hear me out!" His tone becomes desperate and a bit manic.`
+			choice
+				`	"Fine."`
+					goto yes
+				`	"No, go away" (Block the number.)`
+			`	"No wai-" His pleas are cut off at the press of a button, scam callers will really try anything nowadays.`
+				decline
+			label calm
+			`	"And I will, but first here are the coordinates to my newly acquired land, come here and I will show you exactly what the offer is, and when you see it, there ain’t no way you will be able to say no. As I said this is the deal of a lifetime."`
+				goto end
+			label yes
+			`	"Yes, great, now here are the coordinates to my warehouse, once you are there I'll show you exactly why this is the deal of a lifetime, together we will become some of the richest people in the whole bloody Republic, or Freeworlds, whatever."`
+			label end
+			`	He uses a loud and clunky keyboard just out of sight, before smiling at the camera as the call cuts. Your computers recieve a set of coordinates to a small Pug city, in a mostly untouched part of Pugglemug. Hopefully this is a legitimate offer and not an assassination, since no one else should be in that area, apart from the rare tourist to help if it is, the guy didn't even tell you his name.`
+				accept
+
+mission "Derek Chronicles: 2"
+	invisible
+	landing
+	source "Pugglemug"
+	to offer
+		has "Derek Chronicles: 1: done"
+	on offer
+		conversation
+			`It takes some time to find a landing pad allowing you a good view of the city, which sits on the shore of a great lake, giving you an almost idyllic view as the sun rises in the distance. As you land you see a familiar face leaning against a building waiting for you, it seems the mystery man knew you were landing and decided to wait for you.`
+			`	He stands in a relaxed posture, a grin permanently etched onto his face, his hair is greasy but well styled, and as he grins you can see he has a single missing tooth, that gives his face an asymmetrical look. His ethnicity is hard to tell, but from his accent in the call, he is probably from New Britain. The only standout part of his outfit is a large brown overcoat, which looks almost comically large for him.`
+			`	You exit your ship and he rushes over and grabs your hand to shake it. "Good to meet ya face to face, realised in my excitement in meeting the Captain <last> I didn't give my name, thousand apologies and all that. It's Derek Star, business entrepreneur and future billionaire."`
+			`	"Come with me, the warehouse is just over here, I would prefer it to be just us but if you gotta bring any bodyguards I ain't got a problem with that, gotta be safe and all." He smirks and begins walking off into the city, expecting you to follow.`
+			choice
+				`	(Follow cautiously.)`
+					goto continue
+				`	(You turn and enter your ship, this screams like a trap.)`
+			`	From your view ports you can see him rush back and begin waving and shouting at your ship desperately, but you take off regardless, you aren't dying in some back ally in an empty city.`
+				decline
+			label continue
+			`	It takes half hour to reach what you assume to be a warehouse district, though the Pug architecture makes it hard to tell, the buildings here are massive and rise almost five stories tall. Derek pulls out some keys, each of which look like children’s toys, which slots one into a door, which clicks open.`
+			`	Inside is a massive open room, easily able to hold an entire starship inside. He marches across and unlocks another door that opens to a stairwell that leads underground. "Just down here, originally I was just looking around this city for stuff to take off world. Fancy alien tech to sell and all that. These warehouses were all stripped bare when I found em though, nothing left. Well that or nothing was here to begin with."`
+			`	He leads you down the stairs until he reaches another door which he also unlocks. "But luckily I was smart enough to brea-I mean find a way into these here basements, and I found the treasure trove." The door opens into a vast factory complex, though far more colorful than your usual factory. Machines of all types sit in rows upon rows across the expansive complex, each for a different unknown purpose.`
+			`	"IT'S A STARSHIP FACTORY!" He shouts out, gesturing across the factory floor. "A whole manufacturing complex sitting right under a dozen random warehouses in the middle of nowhere. It even has a massive shielded blast door under the nearby lake, which somehow lets ships pass through without flooding the place, ain't it amazing!" He wears the first true smile you have seen from him as he speaks excitedly.`
+			`	"I worked for a couple years in one of those Syndicate slave wage shipyards, and I can verify that everything in here is top of the line machinery, although you gotta fiddle with em to remove some stupid safety locks and such. This place would cost over a billion credits to setup anywhere else, and I got it all for only two million."`
+			choice
+				`	(You stare at the machinery stunned.)`
+					goto yep
+				`	"Wow, that's actually impressive."`
+					goto agreed
+				`	"And why am I here?"`
+					goto quick
+				`	"I suppose you need me to test your ships?"`
+			`	He looks shocked. "What, no, why would I ask the hero of the republic to just, test ships. That seems like a gross waste of your talents." He shakes his head. "My offer is far more robust than, 'testing ships'." he mockingly rolls his eyes at the idea.`
+				goto offer
+			label yep
+			`	"Yep, my reaction too. Thought I had stumbled upon some secret republic base and I was gonna be shot. Haha, I ran outta here so fast, but then a couple days later, came back and, whadya know, still empty. I thought ‘damn I'm lucky’."`
+				goto offer
+			label agreed
+			`	"I know right. This isn't something you just stumble upon and forget, took me a week before I properly explored this place. Found fuck all, everything is in pristine condition, all of it works perfectly, and best of all, not a soul other than me knew it was here."`
+				goto offer
+			label quick
+			`	"A question I'm sure you are desperate to know the answer to, now that you have seen what I can offer." A cocky lopsided grin covers his face. "No worries, that answer will be given soon enough my friend. Gotta let me show off a little first you know?"`
+			label offer
+			`	A wave of his hand signals him beginning to move. "Let's not talk business looking over a ledge, I got a nice little corner set aside for our chat, come on." Gesturing to a stairwell, he leads you down to a curtained off corner of the factory. Inside you find a computer desk covered in files and documents that seems to be where he was during your call, though the chaos from before is limited to the desk this time. Instead sitting next to the desk is a fine wooden table with two chairs, an ornate fruit bowl sits in the centre filled to overflowing, along with packs of various snacks.`
+			`	Derek sits at the table and picks up to begin peeling a banana. "Sit down, no point standing around." You take your seat while be begins enjoying his fruit.`
+			choice
+				`	(Take a fruit.)`
+					goto fruit
+				`	(Take one of the snacks.)`
+					goto snack
+				`	(Wait silently.)`
+			`	You wait for Derek to finish his food silently, staring him down while he happily eats his fruit. Him not even acknowledging you until he finally throws the peel into a nearby bin.`
+				goto speech
+			label fruit
+			`	You take a fruit from the bowl and eat silently with Derek, soon enough you have both finished your food and he leans over the table.`
+				goto speech
+			label snack
+			`	You take something from the snacks on the side and eat silently with Derek, soon enough you have both finished your food and he leans over the table.`
+			label speech
+			`	"So I'll be straight with you, I want your face." He waits a moment before continuing. "Not literally, but for you to be the face of what will be my company. I can bring in skilled workers from the Syndicate who would love some good wages for good work. I can negotiate with the corporations for the right to produce and sell their goods for a cut. But I can't bring in customers, even with these good looks." He winks with a smirk.`
+			`	"Your name is known across the whole of human space, both scumbag pirates and honourable Navy goons know about you. I get advertisements with your name on them, a commercial or two, and that will be enough to bring in a steady stream of eager captains, each of which wanna be just like that badass captain from the news." He leans back while picking some food from his teeth.`
+			`	"I get your face to market my goods, and to make the big boys in business take me seriously. You, well you get first pick off the production lines, and I am willing to offer a steady and increasing salary, based on how much you help build this little empire. Plus I will put in your contract that every big decision must be run by you, if we get an opportunity to bring in a new line of outfits, you get to say yay or nay." For the first time seems serious as he lists this out.`
+			`	"I'm not looking to just piggy back offa your celebrity status, I want us to work together to make this place into the one stop shop for everything a captain needs to build whatever type of ship they need. I don't wanna be a Syndicate front, nor a Lionheart branch, I wanna have all of those sons of bitches grovelling at our feet to sell at this operation." He spits to the side, managing to miss the bin my a metre.`
+			`	"So, you interested, or was all this work a waste of my time?" Derek seems to look at you harshly as he waits for your answer, none of the previous mocking attitude remains apart from a sharp stare that cuts into you.`
+			branch mymoney
+				not "50k"
+			action
+				clear "50k"
+				`	"That sounds great, I would happy to sign up."`
+					goto yay
+				`	"What's the catch?`
+					goto catch
+				`	"I'm in if I get my 50k."`
+					goto catch
+				`	"No, I have no interest in that, sorry you wasted your time."`
+					goto die
+			label mymoney
+				`	"That sounds great, I would happy to sign up."`
+					goto yay
+				`	"What's the catch?`
+					goto catch
+				`	"I'm in if I get my 50k."`
+					goto 50k
+				`	"No, I have no interest in that, sorry you wasted your time."`
+					goto die
+			label die
+			action
+				payment 400000
+			`	He gets a pained expression before suddenly pulling a pistol from under the table. He quickly mutters, "Sorry, I didn't want to have to do this, but I can't have anyone else knowing about this place."`
+			`	He pulls the trigger as you brace for the impact. Then nothing, his eyes widen as you both realise he left the safety on. "Oh fuck." He rushes to turn the safety off but you pull your sidearm faster. A shot rings through the factory, as Derek falls to the ground motionless.`
+			`	Shook up by almost dying you make your way back to your ship. You send a report of what happened to the Republic, Freeworlds and Syndicate research groups on the planet. You are sure they will be happy to get this information, and you are right. Each group pools together and sends you a small finders fee for discovering such a trove of unique machinery, and you can rest easy that you won't be punished for killing Derek Star in self-defence.`
+				decline
+			label yay
+			`	He shouts out. "YES, great, so all that leaves is a little problem I have that's gotta be dealt with before we can do anything. I told ya this place cost me 2 mil, well that's correct, but when I bought this place I wasn't exactly worth 2 mil." His hand comes up and scratches his neck. "I had to take a couple big loans to afford it, and I don't currently have a way of paying those off..." He trails off as his meaning is quite clear.`
+				goto truth
+			label 50k
+			`	You hear a strained chuckle as he looks to the side, scratching his head. "Well, you see, getting this place wasn't easy, I was in a rough financial state and had to sorta, take out a buncha loans to get this place." A grimace covers his face. "So right now other than my shuttle and the rights to this place, I have nothing to my name. I'm broke, I lied about paying ya, really sorry about that, I, I was just desperate for you to hear my pitch. In fact if I don't get help paying off those loans, this place with probably be taken as collateral along with any hope of this business ever starting up.`
+				goto moneytruth
+			label catch
+			`	You hear a strained chuckle as he looks to the side, scratching his head. "Well, you see, getting this place wasn't easy, I was in a rough financial state and had to sorta, take out a buncha loans to get this place." A grimace covers his face. "So right now other than my shuttle and the rights to this place, I have nothing to my name. Which means if I don't get a little help in the money department, the rights to this place will probably be taken as collateral along with any hope of this business ever starting up.`
+			label truth
+			`	The truth comes out at last, he not only wanted you to be the face of this place to draw in customers, but to be the main one funding it.`
+			choice
+				`	"So you need 2 million?"`
+					goto cost
+				`	"So I'm the money and the face, why am I only getting a salary?"`
+					goto problem
+				`	"No way, I'm out."`
+					goto die
+			label moneytruth
+			`	The truth comes out at last, he not only wanted you to be the face of this place to draw in customers, but to be the main one funding it.`
+			choice
+				`	"So you need 2 million?"`
+					goto cost
+				`	"So I'm the money and the face, why am I only getting a salary?"`
+					goto problem
+				`	"No way, I'm out."`
+					goto die
+				`	"I don't work with liars."`
+					goto die
+			label problem
+			`	"Because that salary will be significant and continual, no matter your involvement in the company from the day you get the salary, as long as the company persists you and all your kids will receive this payment. Wrote it all out, even got a lawyer to look it over, an online one, seemed like he knew what he was talking about."`
+			`	You ask, "So you need 2 million?"`
+			label cost
+			`	Standing and taking some papers from the cluttered desk he says, "Not exactly, it's actually closer to, 32 million. I need 2 million for the loans, seven for the first year’s wage of the guys I need to hire to work this place. Three for the first load of materials for a full stock. And finally twenty for the rights to all the basic outfits we will need to start up business." Silence fills the room as he lets the number sink in.`
+			branch rich
+				credits >= 32000000
+			choice
+				`	"Sure, if we can set this up it might actually be a good business idea, I'm in.`
+					goto deal
+				`	"That is way too much money, this is clearly a scam, I'm leaving.`
+					goto die
+			label rich
+			choice
+				`	"Alright, send me your account and I'll wire the money over."`
+				`	"Sure, if we can set this up it might actually be a good business idea, I'm in.`
+					goto deal
+				`	"That is way too much money, this is clearly a scam, I'm leaving.`
+					goto die
+			`	A confused look crosses his face until he realises your serious. “Oh no, not right now, I gotta get all the paperwork sorted and taken to Earth, Bourne and Foundry. Since this planet is considered neutral territory, while the taxes are basically none existent, if you wanna do anything here you gotta ask all three powers for the right. Means once we are up and running we will be golden, but until then it's bureaucracy hell." A soft smile forms. "Glad to have you as a partner, partner."`
+				goto end
+			label deal
+			`	Standing up he walks around and shakes your hand vigorously. "You won't regret this, now you won't need to pay anything yet, I need to sort out some paperwork and get it to Earth, Bourne and Foundry. Since this planet is considered neutral, while the taxes are basically none existent, if you wanna do anything here you gotta ask all three powers for the right. Means once we are up and running we will be golden, but until then it's bureaucracy hell." A soft smile forms. "Glad to have you as a partner, partner."`
+			label end
+			`	It takes a few hours to go over the massive amount of paperwork and signatures Derek needs, but he is surprisingly competent at making sure every single box is ticket and checked. Once it is over any thought that he was scamming you are gone, it seems outside Derek’s scummy looks, he is actually a skilled business man.`
+			`	He hands you a copy of his keys to the warehouse and parts with you to go deliver the legal documents and paperwork to the proper parties. "I'll send you a message when I've got it all sorted, with your signature the loan sharks should keep back until we can pay and all the authorities should fast track a business co-owned by the Republic Hero themselves, at least I hope they will, otherwise this will take bloody months." He claps your back good naturedly and grins. "Don't die in space in the meantime."`
+			`	You watch him board a small shuttle, similar to the one sold on New Boston, before the ceiling opens up revealing a rippling force field, above which is the bottom of the lake. His craft passes through the field with no trouble, before rising slowly and suddenly taking off into the skies out of sight.`
+			`	The walk back to your ship is dull alone, but you are left wondering what is in store with this new venture, actually he never said a name for the company. As you enter your ship you see a message. "Oh and the name of the company is Star Industries, this is non-negotiable, my surname is perfect and I promised my mum I would name it that, so no discussion, it's that."`
+			`	Well, so much for picking a name together, but Star Industries does have a ring to it. To the future!`
+				accept
+	on accept
+		event "Derek is ready" 30 40
+
+event "Derek is ready"
+
+mission "Derek Chronicles: 3"
+	name "Start of Star Industries"
+	description "Derek sorted out all the legal aspects of starting the business, now travel to <destination> with 32 million credits to fund the initial expenditures. It is also recommended to prepare 121 bunks, 800 cargo space for transport."
+	landing
+	source 
+		near Sol 100
+		not "Pugglemug"
+	blocked `You have reached <origin>, but you don't have the 32 million credits needed, it's best to go and get the credits before landing.`
+	to offer
+		has "event: Derek is ready"
+	destination "Pugglemug"
+	to complete
+		credits >= 32000000
+	on offer
+		conversation
+			`A message pops up sent from Derek.`
+			`	"Hey <first>, we are at first name basis at this point right? Anyway the boring parts are through, it's all legal now and we are ready to start, just need the 32 million and help with transport, unless you want that number to rise another 3 million. Meet me on Pugglemug, I'm sending the code to open the lake door, just don't crush my shuttle when you come in. Derek Star."`
+			`	You recieve an access code meant to open the docks, and aparently you will also need to transport 121 workers and transport 800 tons of cargo, wonderful.`
+				accept
+	on complete
+		payment -32000000
+
+mission "Derek Chronicles: 4"
+	name "Start of Star Industries"
+	description "Derek needs you to bring 121 workers from Foundry and 860 tons of materials from Moonshake and Crossroads to the factory on <destination> to start up production."
+	landing
+	source "Pugglemug"
+	stopover "Foundry"
+	stopover "Moonshake"
+	stopover "Crossroads"
+	destination "Pugglemug"
+	to offer
+		has "Derek Chronicles: 3: done"
+	to complete
+		has "Derek Chronicles: 4A: done"
+		has "Derek Chronicles: 4B: done"
+		has "Derek Chronicles: 4C: done"
+	to fail
+		or
+			has "Derek Chronicles: 4A: failed"
+			has "Derek Chronicles: 4B: failed"
+			has "Derek Chronicles: 4C: failed"
+	on offer
+		conversation
+			`Your ship descends into the lake beside the empty city, the water consuming your ship as you lower into the depths. It takes a minute to lower all the way to the bottom, but soon enough you are close enough to pick up a wireless signal along with a docking request. Inputting the code causes the rocky floor to tear open, allowing you into the factory hidden underneath.`
+			`	Descending downward, you have to awkwardly manoeuvre to avoid crushing a small rusty shuttle, situated in the centre of the landing pad.`
+			`	Exiting your craft Derek is suddenly upon you draping an arm over your shoulders and dragging you along. "Good to see ya mate, glad you didn't die the month I was occupied. You got the money?" He says leaning in front of you raising an eyebrow.`
+			choice
+				`	"Yeah, it's spare change to me."`
+					goto rich
+				`	"I want to hear why I need transport ships first."`
+					goto transport
+				`	"This is a ton of credits, this better be worth it."`
+			`	He slaps your back, causing you to stumble and walks ahead. "Oh it will, but first we gotta talk logistics."`
+				goto continue
+			label transport
+			`	"I was going to get to that. I suppose I will put my trust in ya and believe you have the credits, because my partner is a competent space captain who wouldn't let me down." He strolls ahead giving you a judging side-eye. "But yeah I need you to be a pickup."`
+				goto continue
+			label rich
+			`	"Good to know. Hope that doesn’t mean you're gonna be disappointed when we work out your salary." He pats you on the shoulder and walks ahead. "Before that though we gotta get what will make those credits rolling."`
+			label continue
+			`	"Ya see, the people I'm gonna get to work here are good guys, met em back when I worked on Foundry, but they knew me at my worst. Poor. While I could get em to pay some freighter to ferry the lot of them from Syndicate space to here. Instead having you come along and do it at no cost to them, both shows how serious this whole thing is and gets on their good side." He saunters into the meeting corner you spoke in last time, and circles the table.`
+			`	The wooden seat lets out a screech as he pulls it out and flops down into it. "As for picking up the initial cargo we need from Moonshake and Crossroads, it's a simple case of, you got the ships for it so why not. Anyway it's all in Syndy space so not like you’re going far. And I'll be coming with ya." He takes an apple from the bowl, only to quickly drop the mushy rotten fruit before sighing. "What a waste of good food, anyway once you transfer the credits we can start moving."`
+			choice
+				`	"I can't just pay for the freighters myself?"`
+					goto payment
+				`	"Alright sure, I can do that easily enough."`
+					goto great
+				`	(Shake your head and prepare to leave.)`
+			`	"I'll meet ya in space, my IFF is the Lusty Siren!" He shouts after you as he accidentally knocks the table, tipping the fruit bowl causing its rotten contents to spill across the table top. You hear him mutter, "Ugh, gonna have to get one of the guys to clean this when they arrive, I sure as shit ain't doing it."`
+				accept
+			label great
+			`	"Great, meet you in space, my IFF is the Lusty Siren, had her for years and she ain't failed me yet." He abruptly stands rocking the table, causing its rotten contents to spill across the table top. "Ugh, gonna have to get one of the guys to clean this when they arrive, I sure as shit ain't doing it."`
+				accept
+			label payment
+			`	"You could, but I already told the workers that I'm showing up with you. I'm sure some have already told their kids they are meeting Captain <last> themselves, and are dying for an autograph. I'm you wouldn't want to let down the kids right?" He gives a judgemental look before muttering. "Or make me look like a liar, that too."`
+			choice
+				`	"Fine I'll come along, let's just go already."`
+					goto great
+				`	"I would prefer to just pay."`
+			`	Derek gives you a deadpan look. "Look if you want these guys to work for us, you come along with me, that's the deal. I'm not wasting more credits and time hiring some random freighters, when you are right here, right now, with a fleet capable of doing the job." His arms cross with a look of frustration across his face.`
+			choice
+				`	"Alright I get it, I'll come along."`
+					goto great
+	npc accompany save
+		government "Merchant"
+		personality escort timid
+		ship
+			"Shuttle" "Lusty Siren"
+	on complete
+		event "Derek is working" 10
+		event "Derek is paying" 80 120
+		conversation
+			`Derek comes over as your ship is finally empty. "Great work partner. Saved us time and money on this, ya should feel proud of that." He pats you on the back as he walks past.`
+			`	"I should be able to get this place up and running in a couple weeks, but I ain't gonna be able to pay you for a little while. Gonna need an idea of what our profits are gonna be like to work out how much I owe ya. That means it's gonna be a couple months before you see a penny, but I'll make sure to include the back pay on top of your new salary when it's sent out, I look forward to working with ya plenty in the future partner, so once again, don't die out there."`
+			`	Without much to do now, you board your ship to leave as the factory thrums in the background.`
+				decline
+
+event "Derek is working"
+	planet Pugglemug
+		spaceport `The primary spaceport here is marked by an enormous collection of arches forming an open-air dome. Based on the power cables and devices attached to the sides of the arches, you suspect that the entire dome can be protected by an energy shield if necessary. Inside it, landing platforms jut out from the arches at many different levels. A nearby billboard displays advertising for Star Industries, the advert being a quote that you have never said about the quality of the products sold.`
+		outfitter "Basic Outfits"
+		outfitter "Common Outfits"
+
+event "Derek is paying"
+
+mission "Derek Chronicles: 4A"
+	name "Material transport to Star Industries"
+	description "Bring the 800 tons of materials to the factory on <destination>."
+	landing
+	source "Moonshake"
+	destination "Pugglemug"
+	cargo "Metals" 800
+	blocked `The cargo is ready to load, however you do not have enough free space. Come back when you have <tons> of free space.`
+	to offer
+		has "Derek Chronicles: 4: active"
+	on offer
+		conversation
+			`Loading the supplies on <origin> takes some time. Rather than getting all of the various materials delivered to a single landing pad, Derek instead directs you to dozens of independent suppliers across the planet. The whole process takes up a whole day of travel, but soon enough you have all 800 tons loaded up and ready to go.`
+				accept
+	on complete
+		conversation
+			branch workers
+				has "Derek Chronicles: 4C: done"
+			`Your crew unload the many containers into the warehouses above the factory, it takes some time but soon enough, the countless materials fill the unused space inside.`
+			label workers
+			`Your new workers do the laborious task of unloading the many containers into the warehouses above the factory, they organise them so they are easy to use later on, and manage to do so in record time.`
+
+mission "Derek Chronicles: 4B"
+	name "Hazard transport to Star Industries"
+	description "Bring the 60 tons of hazardous materials to the factory on <destination>."
+	landing
+	source "Crossroads"
+	destination "Pugglemug"
+	cargo "Uranium" 60
+	blocked `The cargo is ready to load, however you do not have enough free space. Come back when you have <tons> of free space.`
+	to offer
+		has "Derek Chronicles: 4: active"
+	on offer
+		conversation
+			`You land outside one of the factories that refines the mined Uranium on <origin> into usable materials for ship construction. It only takes an hour for the many crates, all marked with various danger signs to be packed aboard your ship, ready for transport to <destination>.`
+				accept
+	on complete
+		conversation
+			branch workers
+				has "Derek Chronicles: 4C: done"
+			`Your crew unload the hazardous materials into secure areas of the warehouses above the factory, while it isn't much, each requires delicate care when moving so it takes some hours before they finish.`
+			label workers
+			`Your new workers carefully unload the hazardous materials into secure areas of the warehouses above the factory, they manage to finish the time consuming task in record time.`
+
+mission "Derek Chronicles: 4C"
+	name "Worker transport to Star Industries"
+	description "Bring the 121 workers to the factory on <destination>."
+	landing
+	source "Foundry"
+	destination "Pugglemug"
+	passengers 121
+	blocked `You have arrived but do not have enough bunks for all the workers. Come back when you have <capacity> to transport the workers in.`
+	to offer
+		has "Derek Chronicles: 4: active"
+	on offer
+		conversation
+			`Your ship pierces the atmosphere, and thrusters kick in to lower you onto a landing pad in one of the many vast industrial districts the litter <origin>. A gathering of rough looking people are gathered nearby, a pile of belongings organised beside them. Once Dereks shuttle descends a handful of the people split off and approach his craft, each the largest and toughest from among the gathering.`
+			`	As your hatch opens for you to exit, you can see Derek climbing down from his shuttle, his usual clothes swapped out for a high class suit and tie. The man at the head of the approaching group is large at over 6ft with a build that makes him seem even larger, he has short blond hair and like all the other workers, is wearing simple dark blue overalls.`
+			`	Derek open his arms as they approach. "Dedrich, how are you doing, you look great, you and your guys put in your notice like I told ya to?" The large man walks past Derek without a glance and comes to a stop before you, he looks you over for a moment.`
+			choice
+				`	"Hello?"`
+					goto hi
+				`	(Glare back.)`
+					goto glare
+				`	(Wink at him.)`
+			`	His eyes widen a little and looks away. "Apologies, was just checking to make sure you weren't some impostor who tricked the idiot. You seem to be the real deal though."`
+				goto continue
+			label glare
+			`	He nods. "Would be intimidating if that ship was between us, though I'm not stupid enough to assume anything about a war heroes combat skills. Sorry about the look over, I assumed Derek got scammed."`
+				goto continue
+			label hi
+			`	He nods. "You're not a look alike, you really are <first> <last>. I heard your voice in the parliamentary recordings."`
+			label continue
+			`	He turns to look back at Derek and his voice loses its serious tone. "How the hell did you pull this off, getting a war hero to sponsor you, I believed you about the secret factory but this seemed like you were scamming us." The posture of the group seems to change as his voice becomes more jovial, almost like they were prepared for a fight until now.`
+			`	"Just my charm and mystique, and the fact that they saw how brilliant my business idea was and saw how much we could make once it's all running." Derek speedily walks around the group and drapes an arm across your shoulders. "Me and <first> are partners in this, they are your boss as much as I will be"`
+			`	Dedrich chuckles. "Good, at least now we have proper assurance about all this, before it was a gamble considering it was just your dumbass running things." The rest of the group laughs openly and you can see Dereks smile slip for a moment. "I trust the wages are finally decided, and I expect it will be appropriate for the risk I'm having my people take here."`
+			choice
+				`	(Let Derek handle this.)`
+					goto derek
+				`	"I gave Derek 7 million credits for the workers’ wages, your people will be looked after."`
+			`	Dedrich nods at that amount. "Sounds like wages aren't going to be an issue then, as long as those machines aren't faulty, I'm surprised at how good this deal is." He looks to the man hanging from your shoulder. "For once you did a good job Derek, consider our debt settled then."`
+			`	Derek holds his hands up. "I know I know, you told me as much when we were negotiating, no need to bring up the past in front of, polite company." He awkwardly laughs.`
+			`	The massive man looks to you, then shrugs. "You are right, the past is dead, fully dead now. As long as my people are looked after, your factory will be run like butter, which I can promise." He turns and marches back to the gathering workers, organising them and getting them into your ship.`
+				goto end
+			label derek
+			`	"I got it all handled, on top of an increased yearly wage of 47k, I've decided to be generous and put a 10k bonus that your guys will all receive upon their official hiring, consider it my gift to make sure there are no, hard feelings going forward."`
+			`	The man’s stare is inscrutable as he looks down at Derek, but soon enough he nods and goes to turn. "That will be enough. As long as my people are looked after, your factory will be run like butter, which I can promise." He marches back to the gathering workers, beginning to organise them for the journey to <destination>.`
+			label end
+			`	Derek spins to stand in front of you. "That went better than I expected. Got history with the big guy, don't worry about it, it's all settled now. I've got a couple people I need to message before leaving Foundry, so see you back in space when this lot are done loading up." You watch as he climbs back into his shuttle, catching some of the workers glaring at his retreating form.`
+				accept
+	on complete
+		conversation
+			`The workers have been celebrating as you traveled to Pugglemug, word of their sign on bonus passed around quick, and throughout the journey many of them repeatedly attempted to get you involved with their drunken festivities. This meant you were forced to continually remind them who is actually flying the ship.`
+			`	Dedrich comes into the cock pit as you come to the lake. He watches as the water swallows your ship and sink down until passing through the energy field. "God damn, I knew we fought actual aliens but seeing this is something else. I'll get my guys ready to work immediatly, it looks like this place will need some setup before it's churning out outfits."`
+			`	The workers quickly unpack and begin powering on the vast factory complex, as you watch from the catwalk above. Derek soon enough appears out of nowhere and sits on the railing beside you. "I got us workers, and part of their contract is to never talk about this place, Dedrich is making sure that's drilled into their heads. Don't want the authorities finding out about this place before were properly established and can make this stuff pass off as built by us."`
+			choice
+				`	"What was with the hostility back there?"`
+					goto hostile
+				`	(Stay silent.)`
+					goto silence
+				`	"Good job."`
+			`	He lets a smile creep onto his face. "I have a good feeling about all this. A new start for all of them, it's whatcha need after dealing with the Syndicate's bullshit for as long as they have."`
+				goto continue
+			label hostile
+			`	He waves a hand dismissivly. "It's nothing, I got a buncha their asses outa the fire once, not exactly the way they wanted, still they owed me. This was them paying me back, but as you saw I ain't an arsehole, I make sure anyone working for me is looked after."`
+				goto continue
+			label silence
+			`	Derek keeps looking ahead. "Got a good feeling about all this, we are gonna be bloody rich you know. Can just feel it."`
+			label continue
+			`	"Anyway you got a reliable fleet as expected, but don't worry about future jobs like this, if we need new workers brought in they can book transport them bloody selves. But thanks for doing this, helps with the moral and all that."`
+			`	One more step towards this place pumping out new outfits for sale and lining your pocket with credits.`
+				decline
+
+mission "Derek Chronicles: 5"
+	invisible
+	landing
+	source
+		near Sol 100
+	to offer
+		has "event: Derek is paying"
+	on offer
+		"salary: Star Industries" = 5700
+		conversation
+			`"<first> <last>, we got the first quarterly earning in, and as I said we are making bank. From our initial profits, it is looking like I am going to be a very rich man once we set this place up fully. As agreed I am setting up an initial salary for your work in this, it is set at 2 mil a year, which translates to 5,700 credits daily, I'll message you when we are ready to expand, see ya then Capi-tan."`
+			`	Soon enough your account is updated with a salary from Star Industries, a nice start, but if your travels have taught you anything, this is just the start of your journey in the business world. Hopefully there are less explosions than in starship piloting.`
+				decline
