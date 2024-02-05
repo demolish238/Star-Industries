@@ -24,8 +24,6 @@
 mission "The Calm before the Derek"
 	landing
 	invisible
-	source
-		near Sol 100
 	to offer
 		has "main plot completed"
 	on offer
@@ -46,7 +44,7 @@ mission "Derek Chronicles: 1"
 	destination "Pugglemug"
 	on offer
 		conversation
-			`You come in for a smooth landing in <origin>'s spaceport, as your comms begin flashing with a request for a video call.`
+			`You come in for a smooth landing in <origin>'s spaceport, when your comms begin flashing with a request for a video call.`
 			`	You don't recognise the number, nor does it show any identification to indicate any sort of corporate or government origin. It's a gamble on who will be on the monitor when you answer.`
 			choice
 				`	(Accept the Call)`
