@@ -135,10 +135,10 @@ mission "Derek Chronicles: 2"
 			action
 				set "bodyguard"
 			label continue
-			`	It takes half hour to reach what you assume to be a warehouse district, though the Pug architecture makes it hard to tell, the buildings here are massive and rise almost five stories tall. Derek pulls out some keys, each of which look like children’s toys, which slots one into a door, which clicks open.`
-			`	Inside is a massive open room, easily able to hold an entire starship inside. He marches across and unlocks another door that opens to a stairwell that leads underground. "Just down here, originally I was just looking around this city for stuff to take off world. Fancy alien tech to sell and all that. These warehouses were all stripped bare when I found em though, nothing left. Well that or nothing was here to begin with."`
-			`	He leads you down the stairs until he reaches another door which he also unlocks. "But luckily I was smart enough to brea-I mean find a way into these here basements, and I found the treasure trove." The door opens into a vast factory complex, though far more colorful than your usual factory. Machines of all types sit in rows upon rows across the expansive complex, each for a different unknown purpose.`
-			`	"IT'S A STARSHIP FACTORY!" He shouts out, gesturing across the factory floor. "A whole manufacturing complex sitting right under a dozen random warehouses in the middle of nowhere. It even has a massive shielded blast door under the nearby lake, which somehow lets ships pass through without flooding the place, ain't it amazing!" He wears the first true smile you have seen from him as he speaks excitedly.`
+			`	It takes half hour to reach what you assume to be a warehouse district, though the Pug architecture makes it hard to tell, the buildings here are massive and rise almost five stories tall. Derek pulls out some keys, each of which look like children’s toys, and slots one into a door, which clicks open.`
+			`	Inside is a massive open room, easily able to hold an entire starship inside. He marches across the empty space to a second door, which opens to a stairwell that leads surprisingly deep underground. He begins descending with you in tow. "Originally I was just looking around this city for stuff to pawn off world. Fancy alien tech and all that. But these warehouses were all stripped bare when I found em, nothing left. Well that or nothing was here to begin with."`
+			`	He leads you down the stairs until you reach another door which is quickly unlocked. "But luckily I was smart enough to find a way into these here basements, and I found the treasure trove." The door swings open, revealing a vast factory complex, though far more colorful than you would expect. Machines of all types sit in rows upon rows across the expansive facility, each for a different unknown purpose.`
+			`	"IT'S A STARSHIP FACTORY!" He shouts while gesturing across the factory floor. "A whole manufacturing complex sitting right under a dozen random warehouses in the middle of nowhere. It even has a massive shielded blast door under the nearby lake, which somehow lets ships pass through without flooding the place, ain't it amazing!" He wears the first true smile you have seen from him as he speaks excitedly.`
 			`	"I worked for a couple years in one of those Syndicate slave wage shipyards, and I can verify that everything in here is top of the line machinery, although you gotta fiddle with em to remove some stupid safety locks and such. This place would cost over a billion credits to setup anywhere else, and I got it all for only two million."`
 			choice
 				`	(You stare at the machinery stunned.)`
@@ -151,13 +151,13 @@ mission "Derek Chronicles: 2"
 			`	He looks shocked. "What, no, why would I ask the hero of the republic to just, test ships. That seems like a gross waste of your talents." He shakes his head. "My offer is far more robust than, 'testing ships'." he mockingly rolls his eyes at the idea.`
 				goto offer
 			label yep
-			`	"Yep, my reaction too. Thought I had stumbled upon some secret republic base and I was gonna be shot. Haha, I ran outta here so fast, but then a couple days later, came back and, whadya know, still empty. I thought ‘damn I'm lucky’."`
+			`	"Yep, my reaction too. Thought I had stumbled upon some secret republic base and I was gonna be shot, haha, I ran outta here so fast. Couple days later came back and whadya know, still empty. Realised it was an abandoned alien factory, meaning not a soul outside of these walls knows it exists."`
 				goto offer
 			label agreed
-			`	"I know right. This isn't something you just stumble upon and forget, took me a week before I properly explored this place. Found fuck all, everything is in pristine condition, all of it works perfectly, and best of all, not a soul other than me knew it was here."`
+			`	"I know right. This isn't something you just stumble upon and forget, took me a week before I properly explored this place. Found fuck all other than that everything is in pristine condition, and best of all, not a soul other than me knew it was here."`
 				goto offer
 			label quick
-			`	"A question I'm sure you are desperate to know the answer to, now that you have seen what I can offer." A cocky lopsided grin covers his face. "No worries, that answer will be given soon enough my friend. Gotta let me show off a little first you know?"`
+			`	"A question I'm sure you are desperate to know the answer to, now that you've seen what I can offer." A cocky lopsided grin covers his face. "No worries there, that answer will be given soon enough my friend. Gotta let me show off a little first you know?"`
 			label offer
 			`	A wave of his hand signals him beginning to move. "Let's not talk business looking over a ledge, I got a nice little corner set aside for our chat, come on." Gesturing to a stairwell, he leads you down to a curtained off corner of the factory. Inside you find a computer desk covered in files and documents that seems to be where he was during your call, though the chaos from before is limited to the desk this time. Instead sitting next to the desk is a fine wooden table with two chairs, an ornate fruit bowl sits in the centre filled to overflowing, along with packs of various snacks.`
 			`	Derek sits at the table and picks up to begin peeling a banana. "Sit down, no point standing around." You take your seat while be begins enjoying his fruit.`
@@ -167,25 +167,31 @@ mission "Derek Chronicles: 2"
 				`	(Take one of the snacks.)`
 					goto snack
 				`	(Wait silently.)`
-			`	You wait for Derek to finish his food silently, staring him down while he happily eats his fruit. Him not even acknowledging you until he finally throws the peel into a nearby bin.`
+			`	You wait for Derek to finish his food silently, staring him down while he happily eats his fruit, until he finally throws the empty peel into a nearby bin, before leaning over the table.`
 				goto speech
 			label fruit
-			`	You take a fruit from the bowl and eat silently with Derek, soon enough you have both finished your food and he leans over the table.`
+			`	You take a fruit from the bowl and eat silently with Derek, soon enough you have both finished your food, with him throwing the empty peel into a nearby bin, before leaning over the table.`
 				goto speech
 			label snack
-			`	You take something from the snacks on the side and eat silently with Derek, soon enough you have both finished your food and he leans over the table.`
+			`	You take something from the snacks on the side and eat silently with Derek, soon enough you have both finished your food, with him throwing the empty peel into a nearby bin, before leaning over the table.`
 			label speech
-			`	"So I'll be straight with you, I want your face." He waits a moment before continuing. "Not literally, but for you to be the face of what will be my company. I can bring in skilled workers from the Syndicate who would love some good wages for good work. I can negotiate with the corporations for the right to produce and sell their goods for a cut. But I can't bring in customers, even with these good looks." He winks with a smirk.`
+			`	"So I'll be straight with you, I want your face." He pauses for a moment, watching your expression.`
+			`	"Not like literally, but for you to be the face of what will be my company. I can bring in skilled workers from the Syndicate who would love some good wages for good work. I can negotiate with big corporations for the right to produce and sell their goods for a cut. But I can't bring in buying customers like you can." He winks with a smirk.`
 			`	"Your name is known across the whole of human space, both scumbag pirates and honourable Navy goons know about you. I get advertisements with your name on them, a commercial or two, and that will be enough to bring in a steady stream of eager captains, each of which wanna be just like that badass captain from the news." He leans back while picking some food from his teeth.`
-			`	"I get your face to market my goods, and to make the big boys in business take me seriously. You, well you get first pick off the production lines, and I am willing to offer a steady and increasing salary, based on how much you help build this little empire. Plus I will put in your contract that every big decision must be run by you, if we get an opportunity to bring in a new line of outfits, you get to say yay or nay." For the first time seems serious as he lists this out.`
-			`	"I'm not looking to just piggy back offa your celebrity status, I want us to work together to make this place into the one stop shop for everything a captain needs to build whatever type of ship they need. I don't wanna be a Syndicate front, nor a Lionheart branch, I wanna have all of those sons of bitches grovelling at our feet to sell at this operation." He spits to the side, managing to miss the bin my a metre.`
-			`	"So, you interested, or was all this work a waste of my time?" Derek seems to look at you harshly as he waits for your answer, none of the previous mocking attitude remains apart from a sharp stare that cuts into you.`
+			`	"I get your face to market my goods, and to make the big boys in business take me seriously. Most of them aren't willing to talk to some random start-up, but a random start-up co-headed by a celebrity, that will get me in the door, which is all I need."`
+			`	He locks eyes with you.`
+			`	"What do you get outa this you're probably thinking? Well for starters you get first pick off the production lines, you get a major say in the direction I take this venture, and I am willing to offer a steady and negotiable salary, based on how much you help build this little empire." For the first time seems serious as he lists this out.`
+			`	"I'm not looking to just piggy back offa your celebrity status, I want us to work together to make this place into the one stop shop for everything a captain needs to build whatever type of ship they want."`
+			`	He wears a snarl as he say. "I don't wanna be a Syndicate front, nor a Lionheart branch, I wanna have all of those sons of bitches grovelling at our feet, begging to sell at this operation." He spits to the side, managing to miss the bin my a whole metre.`
+			`	"So. You interested, or was all this work a waste of my time?" Derek gives a judging look as he waits for your answer, none of the previous mocking attitude remains apart from a sharp stare that cuts into you.`
 			branch mymoney
 				not "50k"
 			action
 				clear "50k"
 			choice
-				`	"That sounds great, I would happy to sign up."`
+				`	"That sounds great, I would be happy to sign up."`
+					goto yay
+				`	"That sounds reasonable, I'm in."`
 					goto yay
 				`	"What's the catch?`
 					goto catch
@@ -195,7 +201,9 @@ mission "Derek Chronicles: 2"
 					goto die
 			label mymoney
 			choice
-				`	"That sounds great, I would happy to sign up."`
+				`	"That sounds great, I would be happy to sign up."`
+					goto yay
+				`	"That sounds reasonable, I'm in."`
 					goto yay
 				`	"What's the catch?`
 					goto catch
@@ -293,8 +301,8 @@ mission "Derek Chronicles: 3"
 		credits >= 32000000
 	on offer
 		conversation
-			`A message pops up sent from Derek.`
-			`	"Hey <first>, we are at first name basis at this point right? Anyway the boring parts are through, it's all legal now and we are ready to start, just need the 32 million and help with transport, unless you want that number to rise another 3 million. Meet me on Pugglemug, I'm sending the code to open the lake door, just don't crush my shuttle when you come in. Derek Star."`
+			`You receive a message from Derek.`
+			`	"Hey <first>, we are at first name basis at this point right? Anyway the boring parts are through, it's all legal now and we're ready to start, just need the 32 million and help with transport, unless you want that number to rise another 3 or so million. Meet me on Pugglemug, I'm sending the code to open the lake door, just don't crush my shuttle when you come in. Derek Star."`
 			`	You recieve an access code meant to open the docks, and aparently you will also need to transport 121 workers and transport 800 tons of cargo, wonderful.`
 				accept
 	on complete
@@ -322,7 +330,7 @@ mission "Derek Chronicles: 4"
 			has "Derek Chronicles: 4C: failed"
 	on offer
 		conversation
-			`Your ship descends into the lake beside the empty city, the water consuming your ship as you lower into the depths. It takes a minute to lower all the way to the bottom, but soon enough you are close enough to pick up a wireless signal along with a docking request. Inputting the code causes the rocky floor to tear open, allowing you into the factory hidden underneath.`
+			`Your ship descends into the lake beside the empty city, the water consuming your ship as you lower into the depths. It takes a minute to sink all the way to the bottom, but soon enough you are close enough to pick up a wireless signal along with a docking request. Inputting the code causes the rocky floor to tear open, allowing you into the factory hidden underneath.`
 			`	Descending downward, you have to awkwardly manoeuvre to avoid crushing a small rusty shuttle, situated in the centre of the landing pad.`
 			`	Exiting your craft Derek is suddenly upon you draping an arm over your shoulders and dragging you along. "Good to see ya mate, glad you didn't die the month I was occupied. You got the money?" He says leaning in front of you raising an eyebrow.`
 			choice
