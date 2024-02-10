@@ -1,6 +1,8 @@
 # Star Industries
 Hello, this plugin adds a long mission chain to create a central outfitter in Daneb after the main campaign is finished.
 
+THIS IS CURRENTLY IN TESTING. Everything you see is liable to change and any feedback is greatly appreciated.
+
 Reccomended Plugins:
 
 https://github.com/demolish238/Mil-taj-Protectorate/tree/main (Mil'taj Protectorate) (My other plugin)
