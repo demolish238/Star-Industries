@@ -328,6 +328,8 @@ mission "Derek Chronicles: 4"
 			has "Derek Chronicles: 4A: failed"
 			has "Derek Chronicles: 4B: failed"
 			has "Derek Chronicles: 4C: failed"
+	on fail
+		dialog `You have failed to deliver the cargo to Derek. It seems Star Industries will stay nothing but a dream.`
 	on offer
 		conversation
 			`Your ship descends into the lake beside the empty city, the water consuming your ship as you lower into the depths. It takes a minute to sink all the way to the bottom, but soon enough you are close enough to pick up a wireless signal along with a docking request. Inputting the code causes the rocky floor to tear open, allowing you into the factory hidden underneath.`
@@ -447,7 +449,7 @@ mission "Derek Chronicles: 4C"
 		has "Derek Chronicles: 4: active"
 	on offer
 		conversation
-			`Your ship pierces the atmosphere, and thrusters kick in to lower you onto a landing pad in one of the many vast industrial districts the litter <origin>. A gathering of rough looking people are gathered nearby, a pile of belongings organised beside them. Once Dereks shuttle descends a handful of the people split off and approach his craft, each the largest and toughest from among the gathering.`
+			`Your ship pierces the atmosphere, and thrusters kick in to lower you onto a landing pad in one of the many vast industrial districts that litter <origin>. A gathering of rough looking people are gathered nearby, a pile of belongings organised beside them. Once Dereks shuttle descends a handful of the people split off and approach his craft, each the largest and toughest from among the gathering.`
 			`	As your hatch opens for you to exit, you can see Derek climbing down from his shuttle, his usual clothes swapped out for a high class suit and tie. The man at the head of the approaching group is large at over 6ft with a build that makes him seem even larger, he has short blond hair and like all the other workers, is wearing simple dark blue overalls.`
 			`	Derek open his arms as they approach. "Dedrich, how are you doing, you look great, you and your guys put in your notice like I told ya to?" The large man walks past Derek without a glance and comes to a stop before you, he looks you over for a moment.`
 			choice
@@ -513,8 +515,172 @@ mission "Derek Chronicles: 5"
 		has "event: Derek is paying"
 	on offer
 		payment 456000
-		"salary: Star Industries" = 5700
+		"salary: Star Industries Outfits" = 5700
 		conversation
-			`"<first> <last>, we got the first quarterly earning in, and as I said we are making bank. From our initial profits, it is looking like I am going to be a very rich man once we set this place up fully. As agreed I am setting up an initial salary for your work in this, it is set at 2 mil a year, which translates to 5,700 credits daily, I'll message you when we are ready to expand, see ya then Capi-tan."`
+			`As you land you recieve a message from Derek.`
+			`	"<first> <last>, we got the first quarterly earning in, and as I said we are making bank. From our initial profits, it is looking like I am going to be a very rich man once we set this place up fully. As agreed I am setting up an initial salary for your work in this, it is set at around 2 mil a year, which translates to roughly 5,700 credits daily, I'll message you when we are ready to expand, see ya then Capi-tan."`
 			`	Soon enough your account is updated with a salary from Star Industries, a nice start, but if your travels have taught you anything, this is just the start of your journey in the business world. Hopefully there are less explosions than in starship piloting.`
 				decline
+
+mission "Derek Chronicles: Outfitters 1"
+	invisible
+	landing
+	source
+		near Sol 100
+	to offer
+		random < 3
+		has "Derek Chronicles: 5: offered"
+	on offer
+		conversation
+			`While landing, a message pops up on your console from Derek.`
+			`	"Hey <first>, it took some time but we might be able to finally start expanding out outfitters stock. Got my foot in the door for negotiations with the Syndicate's outfitter arm, just a slight snag. They're only willing to talk if both of us are present, since I put you down as the co-owner. So when ya free get over here so we can get this moving."`
+				decline
+
+mission "Derek Chronicles: Outfitters 2"
+	name "Copyright Battle"
+	description ""
+	landing
+	source "Pugglemug"
+	to offer
+		has "Derek Chronicles: Outfitters 1: offered"
+	on offer
+		conversation
+			`Landing on Pugglemug is different than usual. The small city Star Industries is located within no longer looks abandoned, instead every few minutes a ship can be seen either landing on or leaving the nearby port. The section of the city around the warehouses has come alive with activity, mostly from visitors looking to purchase from your company.`
+			`	People looking over the lake, watch as you descend into the waters, some taking photos or pointing you out to their friends. Finally the busy sights of the city disappear under the waves as you reach the entrance and land beside the familiar sight of the Lusty Siren.`
+			`	The sound of a factory assaults your ears as you disembark, the workers paying you no mind as you venture through the factory to Derek’s small workspace, only to be met with an empty corner.`
+			`	"Oi, you lookin for the boss?" A worker shouts out in a thick British accent as they approach, before he properly looks you over. "Oh shit sorry Captain <last>, suppose you’re lookin for Derek then. His office was moved into the warehouse above, won't need to land in here anymore outside of emergencies, the dock's for transporting goods and such off world now. Come on, I’ll show ya to his new spot."`
+			`	The man leads you up the long stairwell until you come out into the warehouse. Unlike before where it was empty and clean, now you can't even see over the nearby wall of boxes that rise to the ceiling above, the floor covered in scraps and marks from the machinery used.`
+			`	You see that a small room has been built near the stairwell, with a frosted glass door, adorned with golden letters that read, 'CEO of Star Industries, Derek Star' proudly across its surface.`
+			`	The worker nods to the door and leaves back down the stairs.`
+			choice
+				`	(Knock on the door.)`
+					goto knock
+				`	(Open the door.)`
+					goto found
+				`	"Derek, I'm here!"`
+			`	The sound of feet hitting the floor can be heard as Derek’s voice shouts out. "Good, ya finally made it, come on inside."`
+				goto continue
+			label knock
+			`	"Who the bloody hell is it, thought I said to bother Dedrich with factory problems?" You shout back, "its <first>." You then hear footsteps before the door is flung open. "Ah, good, it is you, come on in then." He gestures inside.`
+				goto continue
+			label found
+			`	You push open the door and see Derek with his feet up on a large wooden desk, a magazine with scantily clad women held in his hands. The magazine is quickly thrown to the floor under his desk, as he notices the open door. "Ever heard of knocking numbnuts!" He looks at you with a snarl before properly looking at you. "Oh fuck it's you, shit sorry about that, was just uh, relaxing, still shoulda knocked ya prick." He kicks under the desk as he makes himself look presentable.`
+			label continue
+			`	You see the office is a mix of mess and dignified. Across one wall is framed documents and contracts, while across the opposite wall is a number of monitors each displaying everything from stock prices, advertisements run by Star Industries, to a cheap crime drama.`
+			`	A mini fridge with a variety of drinks and food sits in a corner, looking well used as the handle has a large chunk somehow broken off, forcing you to be careful if you decide to use it, in case you cut yourself on the sharp edge of the break.`
+			`	The desk he is using holds the computer he used before, although with some clear upgrades to make it as top of the line as it can get. Documents sit across its surface, looking just as disorganised as they were downstairs. A number of pictures of Derek himself can be found on the wall behind his desk, each one clearly recently taken and the majority are him shaking hands with a number of business leaders.`
+			`	A small picture almost hidden to the side of those, shows yourself and Derek shaking hands when you first accepted his offer to start this business. Though you don't remember there ever being anyone else in the room when that happened, and you clearly are unaware of the camera in the picture.`
+#Typos fixed above
+			choice
+				`	"Nice place you got here."`
+					goto thanks
+				`	"What a, 'nice' office Derek."`
+					goto sarcasm
+				`	"You called me here to meet the Syndicate, let's get moving."`
+					goto fast
+				`	"What's with that picture, I don't remember that being taken?"`
+			`	`
+				goto home
+			label thanks
+			`	`
+				goto home
+			label sarcasm
+			`	`
+				goto home
+			label fast
+			`	`
+				goto end
+			label home
+			`	`
+			`	`
+			label end
+			`	`
+			`	`
+			`	`
+
+mission "Derek Chronicles: Shipyards 1"
+	invisible
+	landing
+	source
+		near Sol 100
+	to offer
+		random < 3
+		has "Derek Chronicles: 5: offered"
+		has "Derek Chronicles: Advertising 2: done"
+	on offer
+		conversation
+			`A priority marked message appears in your comms, when you check it seems to be from Derek.`
+			`	"<first> I did it, I got us a deal that will let us open up a proper shipyard on this shithole, your latest adverts success was our in from the looks of it. Get over here bloody soon cause I ain't losing this opportunity if I can help it!"`
+				decline
+
+mission "Derek Chronicles: Shipyards 2"
+	name "Startup of the Shipyard"
+	description ""
+	landing
+	source "Pugglemug"
+	to offer
+		has "Derek Chronicles: Shipyards 1: offered"
+	on offer
+		conversation
+			``
+			`	`
+			`	`
+			choice
+				`	`
+					goto
+				`	`
+					goto
+				`	`
+			`	`
+			`	`
+
+mission "Derek Chronicles: Advertising 1"
+	invisible
+	landing
+	source
+		near Sol 100
+	to offer
+		random < 5
+		has "Derek Chronicles: 5: offered"
+	on offer
+		conversation
+			``
+			`	`
+				decline
+
+mission "Derek Chronicles: Advertising 2"
+	name "The Face of the Business"
+	description ""
+	landing
+	source "Pugglemug"
+	to offer
+		has "Derek Chronicles: Advertising 1: offered"
+	on offer
+		conversation
+			``
+			`	`
+			`	`
+			choice
+				`	`
+					goto
+				`	`
+					goto
+				`	`
+			`	`
+			`	`
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
